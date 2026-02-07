@@ -1,1904 +1,383 @@
 <!DOCTYPE html>
-<html lang="pt">
+<html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    
+    <!-- Meta tags PWA -->
     <meta name="theme-color" content="#0f0f0f">
-    <meta name="description" content="Ficha de RPG interativa completa com sistema de perícias, magias, inventário e rolagem de dados">
-    <meta name="keywords" content="RPG, ficha, personagem, dados, perícias, magias, inventário">
+    <meta name="description" content="Ficha de RPG interativa completa - Crie e gerencie personagens, rolagens de dados, inventário e muito mais!">
+    <meta name="keywords" content="RPG, ficha, personagem, dados, D&D, Tormenta, sistema, jogo, tabela, perícias">
     <meta name="author" content="RPG Console Pro">
+    <meta name="robots" content="index, follow">
+    
+    <!-- PWA Capabilities -->
     <meta name="mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <meta name="apple-mobile-web-app-title" content="RPG Console">
-    <link rel="manifest" id="app-manifest">
-    <link rel="icon" type="image/png" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAACXBIWXMAAAsTAAALEwEAmpwYAAAAIGNIUk0AAHolAACAgwAA+f8AAIDpAAB1MAAA6mAAADqYAAAXb5JfxUYAAAHISURBVHjatJZNSsNAEIa/ybax1SqiB8gBWs+RG3gQ8QAewHP0Fh6iNxDxBB5EPYAvBau1P7ZJWx9MiDHJZP6z8MFLyOabj2/mn53gvYcxRs0YIwCl1AbwBpwDx8AK4AJ9YBd4Ac6Aq+J3kfVg8bE6Bj4BF6iW1rqJ1nobqAKPwAbwHdaAc841gSGwCjTCHqKUUsApcAdUgIFzrhXsAXPnbdu2C7YHNIEGMP7xLJgBSqkqsAPcAC1g7JxrJ8kYcA5cALvAI/AV5gFVVd2ybbvqewA4B3rAHnAcOYUdoA7c5rETJYUP4AA4Ai6TTAKYDATPYZJ10Fe9B3QBB6glmsLScJTAo9A0hsaT+kQp1QR6wFJW01gYkNIA8AWsZ2kgMICMBgA38y9R1mEoKyCLlOZqm3pEShNAD3iJY8BgD5DSEuACuI5qIKsXkVJK4g3Fz8z3AInX0hpwBNwz3QP+HSDxqloGDoHbr+Q70rZtW9pD4gW9znoPaANv5XJ5I20AhbIAPAP9crlcAVrGmH/DYA/QWmtjzFiq0ALeS6WSFzgg9IB5D5D2A7AA3AMvS5MY8eIs0dIasAH0v+ezMGA2hWWgb4zpRXmHsMoZYz6At6g3IqU00B6wXCoLfkXdBbqJ3gj/vD2F9IA0nw0joDvZA/59CifHhVQGlFLvwOj/vaAxRkveHQcAj05JvwICvHcAAAAASUVORK5CYII=">
-    <link rel="apple-touch-icon" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAACXBIWXMAAAsTAAALEwEAmpwYAAAAIGNIUk0AAHolAACAgwAA+f8AAIDpAAB1MAAA6mAAADqYAAAXb5JfxUYAAAHISURBVHjatJZNSsNAEIa/ybax1SqiB8gBWs+RG3gQ8QAewHP0Fh6iNxDxBB5EPYAvBau1P7ZJWx9MiDHJZP6z8MFLyOabj2/mn53gvYcxRs0YIwCl1AbwBpwDx8AK4AJ9YBd4Ac6Aq+J3kfVg8bE6Bj4BF6iW1rqJ1nobqAKPwAbwHdaAc841gSGwCjTCHqKUUsApcAdUgIFzrhXsAXPnbdu2C7YHNIEGMP7xLJgBSqkqsAPcAC1g7JxrJ8kYcA5cALvAI/AV5gFVVd2ybbvqewA4B3rAHnAcOYUdoA7c5rETJYUP4AA4Ai6TTAKYDATPYZJ10Fe9B3QBB6glmsLScJTAo9A0hsaT+kQp1QR6wFJW01gYkNIA8AWsZ2kgMICMBgA38y9R1mEoKyCLlOZqm3pEShNAD3iJY8BgD5DSEuACuI5qIKsXkVJK4g3Fz8z3AInX0hpwBNwz3QP+HSDxqloGDoHbr+Q70rZtW9pD4gW9znoPaANv5XJ5I20AhbIAPAP9crlcAVrGmH/DYA/QWmtjzFiq0ALeS6WSFzgg9IB5D5D2A7AA3AMvS5MY8eIs0dIasAH0v+ezMGA2hWWgb4zpRXmHsMoZYz6At6g3IqU00B6wXCoLfkXdBbqJ3gj/vD2F9IA0nw0joDvZA/59CifHhVQGlFLvwOj/vaAxRkveHQcAj05JvwICvHcAAAAASUVORK5CYII=">
+    <meta name="apple-mobile-web-app-title" content="RPG Console Pro">
+    
+    <!-- Open Graph / Social Media -->
+    <meta property="og:title" content="RPG Interactive Console Pro">
+    <meta property="og:description" content="Ficha de RPG interativa completa para suas aventuras!">
+    <meta property="og:image" content="icons/icon-512x512.png">
+    <meta property="og:url" content="https://rpgconsole.example.com">
+    <meta property="og:type" content="website">
+    
+    <!-- Twitter Cards -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="RPG Interactive Console Pro">
+    <meta name="twitter:description" content="Ficha de RPG interativa completa para suas aventuras!">
+    <meta name="twitter:image" content="icons/icon-512x512.png">
+    
+    <!-- Manifest and Icons -->
+    <link rel="manifest" href="manifest.json">
+    <link rel="icon" type="image/png" href="icons/icon-192x192.png">
+    <link rel="apple-touch-icon" href="icons/apple-touch-icon.png">
+    
+    <!-- Styles -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    
     <title>RPG Interactive Console Pro</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <style>
-        @import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
-
-        :root {
-            --pixel-font: 'Press Start 2P', cursive;
-            --screen-border: #444;
-            --primary-blue: #1e3a52;
-            --accent-gold: #ffeb3b;
-            --edit-bg: #222;
-            --view-text: #e0e0e0;
-            --die-red: #ff4d4d;
-            --die-custom: #4db8ff;
-            --proficiency-green: #4de64d;
-            --expertise-purple: #8a2be2;
-        }
-
-        * {
-            box-sizing: border-box;
-            -webkit-tap-highlight-color: transparent;
-        }
-
-        body {
-            background-color: #0f0f0f;
-            display: flex;
-            justify-content: center;
-            align-items: flex-start;
-            min-height: 100vh;
-            margin: 0;
-            font-family: var(--pixel-font);
-            color: white;
-            user-select: none;
-            overflow-x: hidden;
-            padding: 10px;
-            -webkit-font-smoothing: antialiased;
-        }
-
-        /* --- INSTALL PROMPT --- */
-        #install-prompt {
-            position: fixed;
-            bottom: 20px;
-            left: 50%;
-            transform: translateX(-50%);
-            background: #1a1a1a;
-            border: 3px solid var(--accent-gold);
-            border-radius: 8px;
-            padding: 15px;
-            z-index: 10000;
-            display: none;
-            flex-direction: column;
-            gap: 10px;
-            max-width: 90%;
-            box-shadow: 0 0 20px rgba(0,0,0,0.8);
-        }
-
-        #install-prompt.show {
-            display: flex;
-            animation: slideUp 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
-        }
-
-        @keyframes slideUp {
-            from { transform: translateX(-50%) translateY(100px); opacity: 0; }
-            to { transform: translateX(-50%) translateY(0); opacity: 1; }
-        }
-
-        .prompt-text {
-            font-size: 8px;
-            text-align: center;
-            color: var(--accent-gold);
-        }
-
-        .prompt-buttons {
-            display: flex;
-            gap: 10px;
-            justify-content: center;
-        }
-
-        .prompt-btn {
-            background: #2c2c2c;
-            border: 1px solid #444;
-            padding: 8px 15px;
-            font-size: 7px;
-            color: white;
-            cursor: pointer;
-            border-radius: 4px;
-            transition: all 0.3s ease;
-        }
-
-        .prompt-btn:hover {
-            background: #3a3a3a;
-        }
-
-        .prompt-btn.install {
-            background: var(--accent-gold);
-            color: #000;
-        }
-
-        /* --- OFFLINE STATUS --- */
-        #offline-status {
-            position: fixed;
-            top: 10px;
-            left: 50%;
-            transform: translateX(-50%);
-            background: #800;
-            color: white;
-            padding: 8px 15px;
-            border-radius: 4px;
-            font-size: 7px;
-            z-index: 9999;
-            display: none;
-            animation: pulse 2s infinite;
-        }
-
-        @keyframes pulse {
-            0% { opacity: 0.8; }
-            50% { opacity: 1; }
-            100% { opacity: 0.8; }
-        }
-
-        #offline-status.show {
-            display: block;
-        }
-
-        /* --- SPLASH SCREEN SYSTEM COM TRANSIÇÃO SUAVE --- */
-        #splash-overlay {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100vw;
-            height: 100vh;
-            background: #000;
-            z-index: 9999;
-            display: flex;
-            flex-direction: row;
-            justify-content: center;
-            align-items: center;
-            gap: 20px;
-            padding: 20px;
-            transition: all 1.2s cubic-bezier(0.65, 0, 0.35, 1);
-            overflow: hidden;
-            pointer-events: none;
-        }
-
-        .splash-screen {
-            flex: 1;
-            min-width: 0;
-            max-width: 500px;
-            aspect-ratio: 4 / 3;
-            border: 6px solid #222;
-            background: #050505;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            position: relative;
-            overflow: hidden;
-            transition: transform 1s cubic-bezier(0.68, -0.55, 0.27, 1.55), 
-                        opacity 0.8s ease-out,
-                        border-color 0.6s ease;
-            will-change: transform, opacity;
-        }
-
-        .splash-text {
-            font-size: 20px;
-            color: #fff;
-            text-shadow: 2px 2px #f00, -2px -2px #0ff;
-            animation: glitch 0.3s infinite alternate;
-            letter-spacing: 3px;
-            opacity: 0;
-            text-align: center;
-            padding: 0 10px;
-            word-break: break-word;
-            transition: transform 0.8s cubic-bezier(0.34, 1.56, 0.64, 1), 
-                        opacity 0.8s ease;
-        }
-
-        .splash-subtext {
-            position: absolute;
-            bottom: 15px;
-            font-size: 7px;
-            color: var(--accent-gold);
-            animation: blink 0.8s infinite;
-            text-align: center;
-            width: 100%;
-            padding: 0 10px;
-            transition: opacity 0.5s ease;
-        }
-
-        @keyframes glitch {
-            0% { transform: translate(0); }
-            20% { transform: translate(-1px, 1px); }
-            40% { transform: translate(-1px, -1px); }
-            60% { transform: translate(1px, 1px); }
-            80% { transform: translate(1px, -1px); }
-            100% { transform: translate(0); }
-        }
-
-        @keyframes blink {
-            0%, 100% { opacity: 1; }
-            50% { opacity: 0; }
-        }
-
-        /* Animações de saída do Splash Screen */
-        .splash-exit .splash-screen:nth-child(1) {
-            animation: slideOutLeft 1s cubic-bezier(0.68, -0.55, 0.27, 1.55) forwards;
-        }
-
-        .splash-exit .splash-screen:nth-child(2) {
-            animation: slideOutRight 1s cubic-bezier(0.68, -0.55, 0.27, 1.55) forwards;
-        }
-
-        @keyframes slideOutLeft {
-            0% { transform: translateX(0) scale(1); opacity: 1; }
-            70% { opacity: 0.7; }
-            100% { transform: translateX(-100vw) scale(0.8) rotate(-10deg); opacity: 0; }
-        }
-
-        @keyframes slideOutRight {
-            0% { transform: translateX(0) scale(1); opacity: 1; }
-            70% { opacity: 0.7; }
-            100% { transform: translateX(100vw) scale(0.8) rotate(10deg); opacity: 0; }
-        }
-
-        /* --- APP CONTENT COM ENTRADA SUAVE --- */
-        .screens-container {
-            display: flex;
-            flex-direction: row;
-            gap: 15px;
-            width: 100%;
-            max-width: 1400px;
-            height: auto;
-            min-height: 90vh;
-            padding: 10px;
-            align-items: stretch;
-            opacity: 0;
-            transform: translateY(20px) scale(0.98);
-            transition: all 1.2s cubic-bezier(0.34, 1.56, 0.64, 1) 0.5s;
-            filter: blur(5px);
-        }
-
-        .screens-container.show {
-            opacity: 1;
-            transform: translateY(0) scale(1);
-            filter: blur(0px);
-        }
-
-        .screen {
-            flex: 1;
-            min-width: 0;
-            background: #1a1a1a;
-            border: 6px solid var(--screen-border);
-            border-radius: 12px;
-            overflow: hidden;
-            position: relative;
-            box-shadow: 0 0 30px rgba(0,0,0,0.8), inset 0 0 15px rgba(0,0,0,0.5);
-            display: flex;
-            flex-direction: column;
-            transition: all 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
-            transform: translateY(30px);
-            opacity: 0;
-        }
-
-        .screens-container.show .screen {
-            transform: translateY(0);
-            opacity: 1;
-        }
-
-        .screens-container.show .screen:nth-child(1) {
-            transition-delay: 0.2s;
-        }
-
-        .screens-container.show .screen:nth-child(2) {
-            transition-delay: 0.4s;
-        }
-
-        .screen.editing-mode { 
-            border-color: #ff9800;
-            box-shadow: 0 0 40px rgba(255, 152, 0, 0.3);
-        }
-
-        .display-screen { 
-            background: #141414; 
-            padding: 15px; 
-            flex: 1.2;
-            min-height: 500px;
-        }
-
-        .content-area {
-            flex-grow: 1;
-            overflow-y: auto;
-            overflow-x: hidden;
-            padding-right: 5px;
-            -webkit-overflow-scrolling: touch;
-        }
-
-        .content-area::-webkit-scrollbar { width: 4px; }
-        .content-area::-webkit-scrollbar-track { background: #000; }
-        .content-area::-webkit-scrollbar-thumb { background: #444; border-radius: 2px; }
-
-        .menu-screen {
-            background: var(--primary-blue);
-            background-image: radial-gradient(circle, rgba(255,255,255,0.03) 1px, transparent 1px);
-            background-size: 12px 12px;
-        }
-
-        .status-bar {
-            background: rgba(0,0,0,0.7);
-            padding: 10px;
-            border-bottom: 2px solid var(--accent-gold);
-            transition: all 0.3s ease;
-        }
-
-        .nav-grid {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 8px;
-            padding: 12px;
-            flex-grow: 1;
-            overflow-y: auto;
-            -webkit-overflow-scrolling: touch;
-        }
-
-        .nav-button {
-            background: #2c2c2c;
-            border: 2px solid #444;
-            border-bottom: 4px solid #000;
-            border-right: 4px solid #000;
-            border-radius: 6px;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            cursor: pointer;
-            transition: all 0.2s cubic-bezier(0.34, 1.56, 0.64, 1);
-            text-align: center;
-            padding: 6px 4px;
-            min-height: 70px;
-            touch-action: manipulation;
-            transform: scale(0.95);
-            opacity: 0;
-        }
-
-        .screens-container.show .nav-button {
-            transform: scale(1);
-            opacity: 1;
-        }
-
-        .nav-button:nth-child(1) { transition-delay: 0.6s; }
-        .nav-button:nth-child(2) { transition-delay: 0.65s; }
-        .nav-button:nth-child(3) { transition-delay: 0.7s; }
-        .nav-button:nth-child(4) { transition-delay: 0.75s; }
-        .nav-button:nth-child(5) { transition-delay: 0.8s; }
-        .nav-button:nth-child(6) { transition-delay: 0.85s; }
-        .nav-button:nth-child(7) { transition-delay: 0.9s; }
-        .nav-button:nth-child(8) { transition-delay: 0.95s; }
-
-        .nav-button:hover, .nav-button:active { 
-            background: #3a3a3a;
-            transform: translateY(-2px);
-        }
-
-        .nav-button.active {
-            background: var(--accent-gold);
-            color: #000;
-            border-color: #fff;
-            transform: translateY(1px);
-            border-bottom-width: 2px;
-            border-right-width: 2px;
-        }
-
-        input, textarea, select {
-            background: var(--edit-bg);
-            border: 1px solid #444;
-            color: white;
-            font-family: var(--pixel-font);
-            font-size: 9px;
-            padding: 4px;
-            width: 100%;
-            outline: none;
-            border-radius: 3px;
-            -webkit-appearance: none;
-            -moz-appearance: none;
-            appearance: none;
-            transition: all 0.3s ease;
-        }
-
-        input:focus, textarea:focus, select:focus {
-            border-color: var(--accent-gold);
-            box-shadow: 0 0 8px rgba(255, 235, 59, 0.3);
-        }
-
-        textarea {
-            resize: vertical;
-            min-height: 80px;
-        }
-
-        select {
-            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6' viewBox='0 0 10 6'%3E%3Cpath fill='%23ffeb3b' d='M5 6L0 1h10z'/%3E%3C/svg%3E");
-            background-repeat: no-repeat;
-            background-position: right 8px center;
-            background-size: 10px 6px;
-            padding-right: 25px;
-        }
-
-        .view-label { font-size: 8px; color: var(--view-text); }
-        .view-value { font-size: 8px; color: var(--accent-gold); }
-
-        .stat-row {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 6px;
-            font-size: 8px;
-            border-bottom: 1px solid #333;
-            padding-bottom: 3px;
-            gap: 5px;
-            transition: all 0.3s ease;
-        }
-
-        .progress-container {
-            width: 100%;
-            height: 8px;
-            background: #222;
-            border: 1px solid #000;
-            margin: 4px 0;
-            border-radius: 2px;
-            overflow: hidden;
-        }
-
-        .progress-fill { 
-            height: 100%; 
-            transition: width 0.8s cubic-bezier(0.34, 1.56, 0.64, 1); 
-            border-radius: 1px; 
-        }
-
-        .item-card {
-            background: #252525;
-            padding: 8px;
-            margin-bottom: 8px;
-            border-left: 3px solid var(--accent-gold);
-            border-radius: 4px;
-            transition: all 0.3s ease;
-            transform: translateY(5px);
-            opacity: 0;
-        }
-
-        .screens-container.show .item-card {
-            transform: translateY(0);
-            opacity: 1;
-        }
-
-        .mode-toggle {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            padding: 8px 12px;
-            background: rgba(0,0,0,0.4);
-            font-size: 6px;
-        }
-
-        .switch {
-            position: relative;
-            display: inline-block;
-            width: 32px;
-            height: 16px;
-        }
-
-        .switch input { opacity: 0; width: 0; height: 0; }
-
-        .slider {
-            position: absolute;
-            cursor: pointer;
-            top: 0; left: 0; right: 0; bottom: 0;
-            background-color: #444;
-            transition: .4s cubic-bezier(0.68, -0.55, 0.27, 1.55);
-            border-radius: 16px;
-        }
-
-        .slider:before {
-            position: absolute;
-            content: "";
-            height: 12px; width: 12px;
-            left: 2px; bottom: 2px;
-            background-color: white;
-            transition: .4s cubic-bezier(0.68, -0.55, 0.27, 1.55);
-            border-radius: 50%;
-        }
-
-        input:checked + .slider { background-color: #ff9800; }
-        input:checked + .slider:before { transform: translateX(16px); }
-
-        .dice-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 8px;
-            margin-top: 12px;
-        }
-
-        .die-btn {
-            background: var(--die-red);
-            border: 2px solid #800;
-            border-radius: 4px;
-            padding: 8px 4px;
-            font-size: 7px;
-            cursor: pointer;
-            touch-action: manipulation;
-            min-height: 45px;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            transition: all 0.2s cubic-bezier(0.34, 1.56, 0.64, 1);
-        }
-
-        .die-btn:hover, .die-btn:active { 
-            transform: translateY(-2px);
-            box-shadow: 0 4px 8px rgba(0,0,0,0.3);
-        }
-
-        .die-btn:active { transform: scale(0.95); }
-        .die-btn.custom { background: var(--die-custom); border-color: #004d80; }
-
-        .custom-dice-editor {
-            margin-top: 15px;
-            padding: 12px;
-            background: #222;
-            border: 2px dashed #444;
-            border-radius: 4px;
-            transition: all 0.3s ease;
-        }
-
-        .roll-log {
-            background: #000;
-            border: 2px solid #333;
-            height: 100px;
-            margin-top: 12px;
-            padding: 8px;
-            font-size: 6px;
-            overflow-y: auto;
-            color: #4de64d;
-            border-radius: 4px;
-            -webkit-overflow-scrolling: touch;
-        }
-
-        .save-indicator {
-            position: absolute;
-            bottom: 8px;
-            right: 8px;
-            font-size: 6px;
-            color: #4de64d;
-            opacity: 0;
-            transition: all 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
-            background: rgba(0,0,0,0.7);
-            padding: 3px 6px;
-            border-radius: 3px;
-            transform: translateY(10px);
-        }
-
-        .save-indicator.show {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-        .action-btn {
-            background: #2c2c2c;
-            border: 1px solid #444;
-            padding: 8px;
-            font-size: 6px;
-            width: 100%;
-            margin-bottom: 8px;
-            color: white;
-            cursor: pointer;
-            border-radius: 4px;
-            touch-action: manipulation;
-            transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+    
+    <!-- PWA Registration -->
+    <script>
+        // Registrar Service Worker
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', () => {
+                navigator.serviceWorker.register('service-worker.js')
+                    .then(registration => {
+                        console.log('✅ Service Worker registrado:', registration);
+                        
+                        // Verificar atualizações periodicamente
+                        setInterval(() => {
+                            registration.update();
+                        }, 60 * 60 * 1000); // A cada hora
+                    })
+                    .catch(error => {
+                        console.log('❌ Falha no registro do Service Worker:', error);
+                    });
+            });
         }
         
-        .action-btn:hover, .action-btn:active { 
-            background: #333;
-            transform: translateY(-2px);
-            box-shadow: 0 4px 8px rgba(0,0,0,0.3);
-        }
+        // Detectar se está offline
+        window.addEventListener('online', () => {
+            showNotification('🌐 Conexão restaurada!', 'success');
+        });
         
-        .danger-btn { background: #800 !important; }
-        
-        /* Estilos para checkboxes */
-        input[type="checkbox"] {
-            accent-color: var(--accent-gold);
-            cursor: pointer;
-            transform: scale(0.8);
-            margin-right: 3px;
-            min-width: 12px;
-            min-height: 12px;
-            transition: transform 0.2s ease;
-        }
-        
-        input[type="checkbox"]:checked {
-            transform: scale(0.9);
-        }
-        
-        input[type="color"] {
-            height: 24px;
-            padding: 0;
-            border: none;
-            cursor: pointer;
-            min-width: 40px;
-            transition: transform 0.2s ease;
-        }
-        
-        input[type="color"]:hover {
-            transform: scale(1.05);
-        }
-        
-        .proficiency-row {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            padding: 6px 0;
-            border-bottom: 1px solid #333;
-            flex-wrap: wrap;
-            gap: 5px;
-        }
-        
-        .expertise-badge {
-            display: inline-block;
-            background: var(--expertise-purple);
-            color: white;
-            font-size: 5px;
-            padding: 1px 3px;
-            border-radius: 2px;
-            margin-left: 4px;
-        }
-        
-        .trained-badge {
-            display: inline-block;
-            background: var(--proficiency-green);
-            color: #000;
-            font-size: 5px;
-            padding: 1px 3px;
-            border-radius: 2px;
-            margin-left: 4px;
-        }
-
-        h2 {
-            font-size: 9px;
-            color: var(--accent-gold);
-            margin-bottom: 12px;
-            border-bottom: 1px solid #333;
-            padding-bottom: 5px;
-            transition: all 0.3s ease;
-        }
-
-        /* ===== RESPONSIVE DESIGN ===== */
-        
-        /* Tablets e telas médias (768px - 1024px) */
-        @media (max-width: 1024px) {
-            .screens-container {
-                gap: 12px;
-                padding: 8px;
-            }
-            
-            .screen {
-                border-width: 5px;
-                border-radius: 10px;
-            }
-            
-            .display-screen {
-                padding: 12px;
-            }
-            
-            .nav-grid {
-                gap: 6px;
-                padding: 10px;
-            }
-            
-            .nav-button {
-                min-height: 65px;
-                padding: 5px 3px;
-            }
-            
-            .nav-button span:first-child {
-                font-size: 12px !important;
-            }
-            
-            .nav-button span:last-child {
-                font-size: 6px !important;
-            }
-        }
-        
-        /* Tablets pequenos e celulares grandes (600px - 767px) */
-        @media (max-width: 767px) {
-            body {
-                padding: 5px;
-                align-items: stretch;
-                min-height: 100vh;
-                height: auto;
-            }
-            
-            .screens-container {
-                flex-direction: column;
-                gap: 10px;
-                min-height: auto;
-                height: auto;
-            }
-            
-            .screen {
-                width: 100%;
-                min-height: 400px;
-                max-height: 70vh;
-            }
-            
-            .display-screen {
-                flex: none;
-                height: 50vh;
-            }
-            
-            .menu-screen {
-                height: 40vh;
-            }
-            
-            .content-area {
-                max-height: calc(100% - 30px);
-            }
-            
-            #splash-overlay {
-                flex-direction: column;
-                gap: 15px;
-                padding: 15px;
-            }
-            
-            .splash-screen {
-                max-width: 90%;
-                aspect-ratio: 16/9;
-            }
-            
-            .splash-text {
-                font-size: 16px;
-            }
-            
-            h2 {
-                font-size: 8px;
-            }
-            
-            input, textarea, select {
-                font-size: 8px;
-                padding: 3px;
-            }
-        }
-        
-        /* Celulares médios (480px - 599px) */
-        @media (max-width: 599px) {
-            .screens-container {
-                padding: 5px;
-                gap: 8px;
-            }
-            
-            .screen {
-                border-width: 4px;
-                border-radius: 8px;
-            }
-            
-            .display-screen, .menu-screen {
-                padding: 10px;
-            }
-            
-            .nav-grid {
-                grid-template-columns: repeat(2, 1fr);
-                gap: 5px;
-            }
-            
-            .nav-button {
-                min-height: 60px;
-                padding: 4px 2px;
-            }
-            
-            .nav-button span:first-child {
-                font-size: 11px !important;
-            }
-            
-            .nav-button span:last-child {
-                font-size: 5px !important;
-            }
-            
-            .dice-grid {
-                grid-template-columns: repeat(3, 1fr);
-                gap: 6px;
-            }
-            
-            .die-btn {
-                font-size: 6px;
-                padding: 6px 3px;
-                min-height: 40px;
-            }
-            
-            .stat-row {
-                font-size: 7px;
-            }
-            
-            .item-card {
-                padding: 6px;
-                margin-bottom: 6px;
-            }
-            
-            .roll-log {
-                height: 80px;
-                font-size: 5px;
-                padding: 6px;
-            }
-        }
-        
-        /* Celulares pequenos (360px - 479px) */
-        @media (max-width: 479px) {
-            .screens-container {
-                width: 100%;
-                margin: 0;
-            }
-            
-            .screen {
-                min-height: 350px;
-                border-width: 3px;
-            }
-            
-            .nav-grid {
-                grid-template-columns: repeat(2, 1fr);
-                gap: 4px;
-            }
-            
-            .nav-button {
-                min-height: 55px;
-            }
-            
-            .nav-button span:first-child {
-                font-size: 10px !important;
-            }
-            
-            .dice-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
-            
-            .die-btn {
-                min-height: 35px;
-            }
-            
-            .splash-text {
-                font-size: 14px;
-                letter-spacing: 2px;
-            }
-            
-            .splash-subtext {
-                font-size: 6px;
-                bottom: 10px;
-            }
-            
-            .mode-toggle {
-                padding: 6px 10px;
-                font-size: 5px;
-            }
-            
-            .switch {
-                width: 28px;
-                height: 14px;
-            }
-            
-            .slider:before {
-                height: 10px;
-                width: 10px;
-                left: 2px;
-                bottom: 2px;
-            }
-            
-            input:checked + .slider:before {
-                transform: translateX(14px);
-            }
-            
-            .action-btn {
-                padding: 6px;
-                font-size: 5px;
-                margin-bottom: 6px;
-            }
-        }
-        
-        /* Celulares muito pequenos (até 359px) */
-        @media (max-width: 359px) {
-            .splash-text {
-                font-size: 12px;
-            }
-            
-            .nav-button {
-                min-height: 50px;
-            }
-            
-            .nav-button span:first-child {
-                font-size: 9px !important;
-            }
-            
-            .nav-button span:last-child {
-                font-size: 4px !important;
-            }
-            
-            .dice-grid {
-                grid-template-columns: repeat(2, 1fr);
-                gap: 4px;
-            }
-            
-            .die-btn {
-                font-size: 5px;
-                padding: 4px 2px;
-                min-height: 30px;
-            }
-            
-            .stat-row {
-                font-size: 6px;
-            }
-            
-            .view-label, .view-value {
-                font-size: 6px;
-            }
-            
-            input, textarea, select {
-                font-size: 6px;
-                padding: 2px;
-            }
-            
-            h2 {
-                font-size: 7px;
-                margin-bottom: 8px;
-            }
-        }
-        
-        /* Orientação paisagem em celulares */
-        @media (max-height: 600px) and (orientation: landscape) {
-            body {
-                align-items: flex-start;
-                padding: 5px;
-            }
-            
-            .screens-container {
-                flex-direction: row;
-                height: auto;
-                min-height: auto;
-            }
-            
-            .screen {
-                min-height: 300px;
-                max-height: 85vh;
-            }
-            
-            .display-screen {
-                height: auto;
-                min-height: 300px;
-            }
-            
-            .menu-screen {
-                height: auto;
-                min-height: 300px;
-            }
-            
-            .nav-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
-            
-            .nav-button {
-                min-height: 50px;
-            }
-        }
-        
-        /* Ajustes para telas muito altas */
-        @media (min-height: 1000px) {
-            .screens-container {
-                height: 80vh;
-            }
-            
-            .screen {
-                max-height: 75vh;
-            }
-        }
-
-        /* Estilo para PWA em tela cheia */
-        @media (display-mode: standalone) {
-            body {
-                padding-top: env(safe-area-inset-top);
-                padding-bottom: env(safe-area-inset-bottom);
-                padding-left: env(safe-area-inset-left);
-                padding-right: env(safe-area-inset-right);
-            }
-            
-            #install-prompt {
-                display: none !important;
-            }
-        }
-    </style>
+        window.addEventListener('offline', () => {
+            showNotification('⚠️ Modo offline ativado', 'warning');
+        });
+    </script>
 </head>
 <body>
-
-<!-- OFFLINE STATUS INDICATOR -->
-<div id="offline-status">⚠️ VOCÊ ESTÁ OFFLINE</div>
-
-<!-- INSTALL PROMPT -->
-<div id="install-prompt">
-    <div class="prompt-text">📱 INSTALAR RPG CONSOLE PRO</div>
-    <div class="prompt-text" style="font-size: 7px; color: #aaa;">Use offline como um app nativo!</div>
-    <div class="prompt-buttons">
-        <button class="prompt-btn" onclick="hideInstallPrompt()">AGORA NÃO</button>
-        <button class="prompt-btn install" onclick="installApp()">INSTALAR</button>
+    <!-- Notificação System -->
+    <div id="notification" class="notification">
+        <span id="notification-text"></span>
+        <button onclick="hideNotification()" class="notification-close">✕</button>
     </div>
-</div>
-
-<!-- SPLASH SCREEN OVERLAY -->
-<div id="splash-overlay">
-    <div class="splash-screen">
-        <div id="splash-left-text" class="splash-text">RPG</div>
-        <div class="splash-subtext">SYSTEM LOAD...</div>
-    </div>
-    <div class="splash-screen">
-        <div id="splash-right-text" class="splash-text">DATASCREEN</div>
-        <div class="splash-subtext">PRO.EDITION BOOTING</div>
-    </div>
-</div>
-
-<div class="screens-container" id="app-container">
-    <div class="screen display-screen" id="left-screen">
-        <div id="screen-title" style="font-size: 7px; color: #888; margin-bottom: 8px; transition: all 0.3s ease;">SISTEMA // STATUS</div>
-        <div class="content-area" id="main-content"></div>
-        <div id="save-msg" class="save-indicator">DADOS SALVOS!</div>
-    </div>
-
-    <div class="screen menu-screen" id="right-screen">
-        <div class="mode-toggle">
-            <span>EXIBIR</span>
-            <label class="switch">
-                <input type="checkbox" id="mode-switch" onchange="toggleMode()">
-                <span class="slider"></span>
-            </label>
-            <span>EDITAR</span>
+    
+    <!-- Splash Screen -->
+    <div id="splash-overlay" class="splash-overlay">
+        <div class="splash-screen">
+            <div id="splash-left-text" class="splash-text">RPG</div>
+            <div class="splash-subtext">SYSTEM LOAD...</div>
         </div>
-
-        <div class="status-bar" id="status-bar-container"></div>
-
-        <div class="nav-grid">
-            <div class="nav-button active" id="btn-status" onclick="showSection('status')">
-                <span style="font-size: 13px;">📊</span>
-                <span style="font-size: 6px;">STATUS</span>
+        <div class="splash-screen">
+            <div id="splash-right-text" class="splash-text">DATASCREEN</div>
+            <div class="splash-subtext">PRO.EDITION BOOTING</div>
+        </div>
+    </div>
+    
+    <!-- Install Prompt -->
+    <div id="install-prompt" class="install-prompt">
+        <div class="install-content">
+            <div class="install-icon">📱</div>
+            <div class="install-text">
+                <h3>Instalar RPG Console Pro</h3>
+                <p>Use offline como um app nativo!</p>
             </div>
-            <div class="nav-button" id="btn-inventory" onclick="showSection('inventory')">
-                <span style="font-size: 13px;">🎒</span>
-                <span style="font-size: 6px;">ITENS</span>
-            </div>
-            <div class="nav-button" id="btn-skills" onclick="showSection('skills')">
-                <span style="font-size: 13px;">🔥</span>
-                <span style="font-size: 6px;">MAGIAS</span>
-            </div>
-            <div class="nav-button" id="btn-proficiencies" onclick="showSection('proficiencies')">
-                <span style="font-size: 13px;">🎯</span>
-                <span style="font-size: 6px;">PERÍCIAS</span>
-            </div>
-            <div class="nav-button" id="btn-lore" onclick="showSection('lore')">
-                <span style="font-size: 13px;">📖</span>
-                <span style="font-size: 6px;">LORE</span>
-            </div>
-            <div class="nav-button" id="btn-dice" onclick="showSection('dice')">
-                <span style="font-size: 13px;">🎲</span>
-                <span style="font-size: 6px;">DADOS</span>
-            </div>
-            <div class="nav-button" id="btn-journal" onclick="showSection('journal')">
-                <span style="font-size: 13px;">📜</span>
-                <span style="font-size: 6px;">DIÁRIO</span>
-            </div>
-            <div class="nav-button" id="btn-config" onclick="showSection('config')">
-                <span style="font-size: 13px;">⚙️</span>
-                <span style="font-size: 6px;">CONFIG</span>
+            <div class="install-buttons">
+                <button class="install-btn secondary" onclick="hideInstallPrompt()">Depois</button>
+                <button class="install-btn primary" onclick="installApp()">Instalar</button>
             </div>
         </div>
     </div>
-</div>
-
-<script>
-    // ===== PWA CONFIGURATION =====
     
-    // Generate and set Web App Manifest
-    const manifest = {
-        "name": "RPG Console Pro",
-        "short_name": "RPG Console",
-        "description": "Ficha de RPG interativa com sistema completo",
-        "start_url": ".",
-        "display": "standalone",
-        "background_color": "#0f0f0f",
-        "theme_color": "#1e3a52",
-        "orientation": "any",
-        "icons": [
-            {
-                "src": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAACXBIWXMAAAsTAAALEwEAmpwYAAAAIGNIUk0AAHolAACAgwAA+f8AAIDpAAB1MAAA6mAAADqYAAAXb5JfxUYAAAHISURBVHjatJZNSsNAEIa/ybax1SqiB8gBWs+RG3gQ8QAewHP0Fh6iNxDxBB5EPYAvBau1P7ZJWx9MiDHJZP6z8MFLyOabj2/mn53gvYcxRs0YIwCl1AbwBpwDx8AK4AJ9YBd4Ac6Aq+J3kfVg8bE6Bj4BF6iW1rqJ1nobqAKPwAbwHdaAc841gSGwCjTCHqKUUsApcAdUgIFzrhXsAXPnbdu2C7YHNIEGMP7xLJgBSqkqsAPcAC1g7JxrJ8kYcA5cALvAI/AV5gFVVd2ybbvqewA4B3rAHnAcOYUdoA7c5rETJYUP4AA4Ai6TTAKYDATPYZJ10Fe9B3QBB6glmsLScJTAo9A0hsaT+kQp1QR6wFJW01gYkNIA8AWsZ2kgMICMBgA38y9R1mEoKyCLlOZqm3pEShNAD3iJY8BgD5DSEuACuI5qIKsXkVJK4g3Fz8z3AInX0hpwBNwz3QP+HSDxqloGDoHbr+Q70rZtW9pD4gW9znoPaANv5XJ5I20AhbIAPAP9crlcAVrGmH/DYA/QWmtjzFiq0ALeS6WSFzgg9IB5D5D2A7AA3AMvS5MY8eIs0dIasAH0v+ezMGA2hWWgb4zpRXmHsMoZYz6At6g3IqU00B6wXCoLfkXdBbqJ3gj/vD2F9IA0nw0joDvZA/59CifHhVQGlFLvwOj/vaAxRkveHQcAj05JvwICvHcAAAAASUVORK5CYII=",
-                "sizes": "192x192",
-                "type": "image/png"
-            },
-            {
-                "src": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAACXBIWXMAAAsTAAALEwEAmpwYAAAAIGNIUk0AAHolAACAgwAA+f8AAIDpAAB1MAAA6mAAADqYAAAXb5JfxUYAAAHISURBVHjatJZNSsNAEIa/ybax1SqiB8gBWs+RG3gQ8QAewHP0Fh6iNxDxBB5EPYAvBau1P7ZJWx9MiDHJZP6z8MFLyOabj2/mn53gvYcxRs0YIwCl1AbwBpwDx8AK4AJ9YBd4Ac6Aq+J3kfVg8bE6Bj4BF6iW1rqJ1nobqAKPwAbwHdaAc841gSGwCjTCHqKUUsApcAdUgIFzrhXsAXPnbdu2C7YHNIEGMP7xLJgBSqkqsAPcAC1g7JxrJ8kYcA5cALvAI/AV5gFVVd2ybbvqewA4B3rAHnAcOYUdoA7c5rETJYUP4AA4Ai6TTAKYDATPYZJ10Fe9B3QBB6glmsLScJTAo9A0hsaT+kQp1QR6wFJW01gYkNIA8AWsZ2kgMICMBgA38y9R1mEoKyCLlOZqm3pEShNAD3iJY8BgD5DSEuACuI5qIKsXkVJK4g3Fz8z3AInX0hpwBNwz3QP+HSDxqloGDoHbr+Q70rZtW9pD4gW9znoPaANv5XJ5I20AhbIAPAP9crlcAVrGmH/DYA/QWmtjzFiq0ALeS6WSFzgg9IB5D5D2A7AA3AMvS5MY8eIs0dIasAH0v+ezMGA2hWWgb4zpRXmHsMoZYz6At6g3IqU00B6wXCoLfkXdBbqJ3gj/vD2F9IA0nw0joDvZA/59CifHhVQGlFLvwOj/vaAxRkveHQcAj05JvwICvHcAAAAASUVORK5CYII=",
-                "sizes": "512x512",
-                "type": "image/png"
-            }
-        ]
-    };
-
-    // Set manifest dynamically
-    const manifestJson = JSON.stringify(manifest);
-    const manifestBlob = new Blob([manifestJson], { type: 'application/json' });
-    const manifestURL = URL.createObjectURL(manifestBlob);
-    document.getElementById('app-manifest').href = manifestURL;
-
-    // Service Worker Registration
-    if ('serviceWorker' in navigator) {
-        window.addEventListener('load', function() {
-            // Create service worker code as a string
-            const swCode = `
-                const CACHE_NAME = 'rpg-console-pro-v2.5';
-                const urlsToCache = [
-                    './',
-                    './index.html'
-                ];
-
-                self.addEventListener('install', event => {
-                    event.waitUntil(
-                        caches.open(CACHE_NAME)
-                            .then(cache => {
-                                console.log('Cache aberto');
-                                return cache.addAll(urlsToCache);
-                            })
-                            .catch(err => {
-                                console.log('Erro ao cachear:', err);
-                            })
-                    );
-                });
-
-                self.addEventListener('fetch', event => {
-                    event.respondWith(
-                        caches.match(event.request)
-                            .then(response => {
-                                if (response) {
-                                    return response;
-                                }
-                                return fetch(event.request)
-                                    .then(response => {
-                                        if(!response || response.status !== 200 || response.type !== 'basic') {
-                                            return response;
-                                        }
-                                        const responseToCache = response.clone();
-                                        caches.open(CACHE_NAME)
-                                            .then(cache => {
-                                                cache.put(event.request, responseToCache);
-                                            });
-                                        return response;
-                                    })
-                                    .catch(() => {
-                                        // Offline fallback
-                                        if (event.request.headers.get('accept').includes('text/html')) {
-                                            return caches.match('./');
-                                        }
-                                    });
-                            })
-                    );
-                });
-
-                self.addEventListener('activate', event => {
-                    event.waitUntil(
-                        caches.keys().then(cacheNames => {
-                            return Promise.all(
-                                cacheNames.map(cacheName => {
-                                    if (cacheName !== CACHE_NAME) {
-                                        console.log('Removendo cache antigo:', cacheName);
-                                        return caches.delete(cacheName);
-                                    }
-                                })
-                            );
-                        })
-                    );
-                });
-            `;
-
-            // Create a Blob from the service worker code
-            const swBlob = new Blob([swCode], { type: 'application/javascript' });
-            const swURL = URL.createObjectURL(swBlob);
-
-            // Register the service worker
-            navigator.serviceWorker.register(swURL)
-                .then(registration => {
-                    console.log('Service Worker registrado com sucesso:', registration);
-                    
-                    // Check for updates
-                    registration.addEventListener('updatefound', () => {
-                        const newWorker = registration.installing;
-                        console.log('Nova versão do Service Worker encontrada:', newWorker);
-                    });
-                })
-                .catch(error => {
-                    console.log('Falha ao registrar Service Worker:', error);
-                });
-        });
-    }
-
-    // Offline detection
-    window.addEventListener('online', updateOnlineStatus);
-    window.addEventListener('offline', updateOnlineStatus);
-
-    function updateOnlineStatus() {
-        const offlineStatus = document.getElementById('offline-status');
-        if (!navigator.onLine) {
-            offlineStatus.classList.add('show');
-            showSaveMessage("⚠️ MODO OFFLINE ATIVADO");
-        } else {
-            offlineStatus.classList.remove('show');
-        }
-    }
-
-    // App installation
-    let deferredPrompt;
-    const installPrompt = document.getElementById('install-prompt');
-
-    window.addEventListener('beforeinstallprompt', (e) => {
-        e.preventDefault();
-        deferredPrompt = e;
-        
-        // Show install prompt after 10 seconds
-        setTimeout(() => {
-            if (deferredPrompt && !isAppInstalled()) {
-                installPrompt.classList.add('show');
-            }
-        }, 10000);
-    });
-
-    function isAppInstalled() {
-        return window.matchMedia('(display-mode: standalone)').matches || 
-               window.navigator.standalone ||
-               document.referrer.includes('android-app://');
-    }
-
-    function hideInstallPrompt() {
-        installPrompt.classList.remove('show');
-    }
-
-    function installApp() {
-        if (!deferredPrompt) return;
-        
-        deferredPrompt.prompt();
-        
-        deferredPrompt.userChoice.then((choiceResult) => {
-            if (choiceResult.outcome === 'accepted') {
-                console.log('Usuário aceitou instalação');
-                showSaveMessage("📱 APP INSTALADO!");
-            } else {
-                console.log('Usuário recusou instalação');
-            }
-            deferredPrompt = null;
-            hideInstallPrompt();
-        });
-    }
-
-    // ===== APP DATA AND LOGIC =====
-    
-    const defaultData = {
-        basic: { name: "THONY ALVEIN", meta: "LVL 5 - LADINO", hpCurrent: 42, hpMax: 50 },
-        stats: [
-            { label: "FORÇA", val: "14 (+2)" }, { label: "DESTREZA", val: "18 (+4)" },
-            { label: "CONSTITUIÇÃO", val: "12 (+1)" }, { label: "INTELIGÊNCIA", val: "10 (+0)" },
-            { label: "SABEDORIA", val: "14 (+2)" }, { label: "CARISMA", val: "08 (-1)" },
-            { label: "CA", val: "16" }, { label: "INICIATIVA", val: "+4" }
-        ],
-        inventory: [
-            { name: "ADAGA DE PRATA", desc: "1d4 + 4 Perfurante" },
-            { name: "POÇÃO DE CURA (x3)", desc: "Recupera 2d4+2 HP" }
-        ],
-        skills: [
-            { name: "ATAQUE FURTIVO", desc: "+3d6 de dano", color: "#4db8ff" },
-            { name: "PASSOS SEM PEGADAS", desc: "Custo: 2 Chi", color: "#ba68c8" }
-        ],
-        proficiencies: [
-            { name: "ACROBACIA", attribute: "DESTREZA", trained: true, bonus: 6, hasExpertise: false },
-            { name: "ATLETISMO", attribute: "FORÇA", trained: true, bonus: 4, hasExpertise: false },
-            { name: "FURTIVIDADE", attribute: "DESTREZA", trained: true, bonus: 8, hasExpertise: true },
-            { name: "ARCANISMO", attribute: "INTELIGÊNCIA", trained: false, bonus: 0, hasExpertise: false },
-            { name: "PERCEPÇÃO", attribute: "SABEDORIA", trained: true, bonus: 4, hasExpertise: false },
-            { name: "PERSUASÃO", attribute: "CARISMA", trained: false, bonus: -1, hasExpertise: false }
-        ],
-        lore: "Nascido nas favelas de Ironport, Thony aprendeu que o silêncio vale mais que o ouro. Após ser traído pela sua guilda, agora busca vingança.",
-        journal: "12/05: Encontrar o contato na Taverna.\n14/05: O amuleto foi roubado novamente.",
-        rollHistory: [],
-        customDice: [100]
-    };
-
-    let characterData = JSON.parse(localStorage.getItem('rpg_character_data')) || defaultData;
-    let isEditing = false;
-    let currentSection = 'status';
-
-    function init() {
-        renderStatusBar();
-        showSection('status');
-        startSplashScreen();
-        calculateAllProficiencies();
-        
-        // Check online status
-        updateOnlineStatus();
-        
-        // Adjust layout for screen
-        adjustLayoutForScreen();
-        
-        // Add resize listeners
-        window.addEventListener('resize', adjustLayoutForScreen);
-        window.addEventListener('orientationchange', function() {
-            setTimeout(adjustLayoutForScreen, 300);
-        });
-
-        // Initialize PWA features
-        if ('serviceWorker' in navigator && navigator.serviceWorker.controller) {
-            console.log('Service Worker está controlando a página');
-        }
-    }
-
-    function adjustLayoutForScreen() {
-        const screens = document.querySelectorAll('.screen');
-        const isMobile = window.innerWidth <= 767;
-        
-        if (isMobile) {
-            const windowHeight = window.innerHeight;
-            const leftScreen = document.getElementById('left-screen');
-            const rightScreen = document.getElementById('right-screen');
-            
-            if (leftScreen && rightScreen) {
-                leftScreen.style.height = Math.min(500, windowHeight * 0.5) + 'px';
-                rightScreen.style.height = Math.min(400, windowHeight * 0.4) + 'px';
-            }
-        } else {
-            screens.forEach(screen => {
-                screen.style.height = '';
-            });
-        }
-    }
-
-    function startSplashScreen() {
-        const leftText = document.getElementById('splash-left-text');
-        const rightText = document.getElementById('splash-right-text');
-        const overlay = document.getElementById('splash-overlay');
-        const app = document.getElementById('app-container');
-        const splashScreens = document.querySelectorAll('.splash-screen');
-
-        setTimeout(() => { 
-            leftText.style.opacity = "1";
-            leftText.style.transform = "translateY(0)";
-        }, 400);
-        
-        setTimeout(() => { 
-            rightText.style.opacity = "1";
-            rightText.style.transform = "translateY(0)";
-        }, 900);
-
-        setTimeout(() => {
-            splashScreens.forEach((screen, index) => {
-                screen.style.borderColor = index === 0 ? "#ff0000" : "#00ffff";
-                screen.style.boxShadow = `0 0 30px ${index === 0 ? "rgba(255,0,0,0.5)" : "rgba(0,255,255,0.5)"}`;
-            });
-        }, 1800);
-
-        setTimeout(() => {
-            overlay.classList.add('splash-exit');
-            
-            setTimeout(() => {
-                app.classList.add('show');
-                
-                setTimeout(() => {
-                    const title = document.getElementById('screen-title');
-                    if (title) {
-                        title.style.opacity = "1";
-                        title.style.transform = "translateY(0)";
-                    }
-                }, 300);
-                
-                setTimeout(() => {
-                    if (overlay.parentNode) {
-                        overlay.parentNode.removeChild(overlay);
-                    }
-                }, 1500);
-            }, 500);
-        }, 2800);
-    }
-
-    function toggleMode() {
-        isEditing = document.getElementById('mode-switch').checked;
-        const screens = [document.getElementById('left-screen'), document.getElementById('right-screen')];
-        screens.forEach(s => {
-            if (isEditing) {
-                s.classList.add('editing-mode');
-                s.style.transform = "scale(0.99)";
-                setTimeout(() => {
-                    s.style.transform = "";
-                }, 200);
-            } else {
-                s.classList.remove('editing-mode');
-            }
-        });
-        renderStatusBar();
-        renderContent();
-    }
-
-    function renderStatusBar() {
-        const container = document.getElementById('status-bar-container');
-        const perc = (characterData.basic.hpCurrent / characterData.basic.hpMax) * 100;
-        
-        if (isEditing) {
-            container.innerHTML = `
-                <input type="text" value="${characterData.basic.name}" onchange="updateBasic('name', this.value)" style="margin-bottom:4px; font-size: 9px;">
-                <input type="text" value="${characterData.basic.meta}" onchange="updateBasic('meta', this.value)" style="font-size: 6px; margin-bottom:4px;">
-                <div style="display:flex; justify-content:space-between; font-size:5px; align-items: center;">
-                    <span>HP: <input type="number" value="${characterData.basic.hpCurrent}" onchange="updateBasic('hpCurrent', this.value)" style="width:35px; font-size: 8px;"></span>
-                    <span>MAX: <input type="number" value="${characterData.basic.hpMax}" onchange="updateBasic('hpMax', this.value)" style="width:35px; font-size: 8px;"></span>
+    <!-- App Container -->
+    <div class="app-container" id="app-container">
+        <!-- Header -->
+        <header class="app-header">
+            <div class="header-left">
+                <button class="menu-toggle" id="menu-toggle" onclick="toggleMenu()">
+                    <i class="fas fa-bars"></i>
+                </button>
+                <div class="app-title">RPG CONSOLE PRO</div>
+            </div>
+            <div class="header-right">
+                <div id="connection-status" class="connection-status online">
+                    <i class="fas fa-wifi"></i>
                 </div>
-            `;
-        } else {
-            container.innerHTML = `
-                <div style="color:var(--accent-gold); margin-bottom:4px; font-size:8px; word-break: break-word;">${characterData.basic.name}</div>
-                <div style="font-size:6px; margin-bottom:6px;">${characterData.basic.meta}</div>
-                <div class="progress-container">
-                    <div class="progress-fill" style="width: ${perc}%; background: #4de64d;"></div>
-                </div>
-                <div style="font-size:5px; text-align:right;">HP ${characterData.basic.hpCurrent} / ${characterData.basic.hpMax}</div>
-            `;
-        }
-    }
-
-    function renderContent() {
-        const container = document.getElementById('main-content');
-        let html = "";
-
-        if (currentSection === 'status') {
-            html = `<h2>ATRIBUTOS</h2>`;
-            characterData.stats.forEach((s, i) => {
-                html += `
-                    <div class="stat-row">
-                        <span class="view-label">${s.label}</span>
-                        ${isEditing 
-                            ? `<input type="text" value="${s.val}" onchange="updateStat(${i}, this.value)" style="width:70px; text-align:right; font-size: 8px;">`
-                            : `<span class="view-value">${s.val}</span>`}
-                    </div>`;
-            });
-        } 
-        else if (currentSection === 'inventory') {
-            html = `<h2>MOCHILA ${isEditing ? `<button onclick="addItem()" style="color:var(--accent-gold); margin-left:8px; font-size: 6px; background: #333; border: none; padding: 2px 4px; border-radius: 2px; transition: all 0.2s ease;">[+]</button>` : ''}</h2>`;
-            characterData.inventory.forEach((item, i) => {
-                html += `
-                    <div class="item-card">
-                        ${isEditing 
-                            ? `<input type="text" value="${item.name}" onchange="updateItem(${i}, 'name', this.value)" style="font-weight:bold; margin-bottom:4px; font-size: 8px;">
-                               <textarea onchange="updateItem(${i}, 'desc', this.value)" rows="2" style="font-size: 7px;">${item.desc}</textarea>
-                               <button onclick="removeItem(${i})" style="color:red; font-size:5px; margin-top:4px; background: #333; border: none; padding: 2px 4px; border-radius: 2px; transition: all 0.2s ease;">[DELETAR]</button>`
-                            : `<strong style="font-size: 8px;">${item.name}</strong><br><span style="font-size:7px; color:#aaa;">${item.desc}</span>`}
-                    </div>`;
-            });
-        }
-        else if (currentSection === 'skills') {
-            html = `<h2>MAGIAS ${isEditing ? `<button onclick="addSkill()" style="color:var(--accent-gold); margin-left:8px; font-size: 6px; background: #333; border: none; padding: 2px 4px; border-radius: 2px; transition: all 0.2s ease;">[+]</button>` : ''}</h2>`;
-            characterData.skills.forEach((skill, i) => {
-                html += `
-                    <div class="item-card" style="border-left-color: ${skill.color}">
-                        ${isEditing 
-                            ? `<input type="text" value="${skill.name}" onchange="updateSkill(${i}, 'name', this.value)" style="font-weight:bold; margin-bottom:4px; font-size: 8px;">
-                               <textarea onchange="updateSkill(${i}, 'desc', this.value)" rows="2" style="font-size: 7px;">${skill.desc}</textarea>
-                               <div style="display: flex; align-items: center; gap: 8px; margin-top: 5px;">
-                                   <span style="font-size: 6px;">Cor:</span>
-                                   <input type="color" value="${skill.color}" onchange="updateSkill(${i}, 'color', this.value)" style="height:20px; width:40px; padding:0; border:none;">
-                               </div>`
-                            : `<strong style="color:${skill.color}; font-size: 8px;">${skill.name}</strong><br><span style="font-size:7px; color:#aaa;">${skill.desc}</span>`}
-                    </div>`;
-            });
-        }
-        else if (currentSection === 'proficiencies') {
-            html = `<h2>PERÍCIAS ${isEditing ? `<button onclick="addProficiency()" style="color:var(--accent-gold); margin-left:8px; font-size: 6px; background: #333; border: none; padding: 2px 4px; border-radius: 2px; transition: all 0.2s ease;">[+]</button>` : ''}</h2>`;
-            
-            characterData.proficiencies.forEach((prof, i) => {
-                const attrBonus = extractBonusFromStat(prof.attribute);
-                const trainedBonus = prof.trained ? 2 : 0;
-                const expertiseBonus = prof.hasExpertise ? 2 : 0;
-                const totalBonus = attrBonus + trainedBonus + expertiseBonus;
-                
-                if (isEditing) {
-                    html += `
-                        <div class="item-card" style="border-left-color: ${prof.trained ? 'var(--proficiency-green)' : '#666'}">
-                            <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 4px; flex-wrap: wrap;">
-                                <input type="text" value="${prof.name}" onchange="updateProficiency(${i}, 'name', this.value)" style="width: 100px; min-width: 80px; font-size: 8px;">
-                                <select onchange="updateProficiency(${i}, 'attribute', this.value)" style="background: var(--edit-bg); color: white; font-size: 7px; padding: 3px; min-width: 70px;">
-                                    <option value="FORÇA" ${prof.attribute === 'FORÇA' ? 'selected' : ''}>FOR</option>
-                                    <option value="DESTREZA" ${prof.attribute === 'DESTREZA' ? 'selected' : ''}>DES</option>
-                                    <option value="CONSTITUIÇÃO" ${prof.attribute === 'CONSTITUIÇÃO' ? 'selected' : ''}>CON</option>
-                                    <option value="INTELIGÊNCIA" ${prof.attribute === 'INTELIGÊNCIA' ? 'selected' : ''}>INT</option>
-                                    <option value="SABEDORIA" ${prof.attribute === 'SABEDORIA' ? 'selected' : ''}>SAB</option>
-                                    <option value="CARISMA" ${prof.attribute === 'CARISMA' ? 'selected' : ''}>CAR</option>
-                                </select>
-                            </div>
-                            <div style="display: flex; align-items: center; gap: 12px; font-size: 6px; margin-bottom: 4px; flex-wrap: wrap;">
-                                <label style="display: flex; align-items: center; gap: 3px; white-space: nowrap;">
-                                    <input type="checkbox" ${prof.trained ? 'checked' : ''} onchange="updateProficiency(${i}, 'trained', this.checked)">
-                                    Treinado (+2)
-                                </label>
-                                <label style="display: flex; align-items: center; gap: 3px; white-space: nowrap;">
-                                    <input type="checkbox" ${prof.hasExpertise ? 'checked' : ''} onchange="updateProficiency(${i}, 'hasExpertise', this.checked)">
-                                    Expertise (+2)
-                                </label>
-                            </div>
-                            <div style="font-size: 6px; color: #aaa; margin-bottom: 4px; word-break: break-word;">
-                                Total: ${totalBonus >= 0 ? '+' : ''}${totalBonus} 
-                                (${attrBonus >= 0 ? '+' : ''}${attrBonus} atributo${prof.trained ? ` + ${trainedBonus} treino` : ''}${prof.hasExpertise ? ` + ${expertiseBonus} expertise` : ''})
-                            </div>
-                            <button onclick="removeProficiency(${i})" style="color:red; font-size:5px; background: #333; border: none; padding: 2px 4px; border-radius: 2px; transition: all 0.2s ease;">[REMOVER]</button>
-                        </div>`;
-                } else {
-                    const icon = prof.hasExpertise ? '🏆' : (prof.trained ? '✓' : '✗');
-                    html += `
-                        <div class="item-card" style="border-left-color: ${prof.trained ? 'var(--proficiency-green)' : '#666'}">
-                            <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 5px;">
-                                <div style="flex: 1; min-width: 120px;">
-                                    <strong style="font-size: 8px;">${prof.name}</strong><br>
-                                    <span style="font-size: 6px; color: #aaa;">${prof.attribute} ${icon} ${prof.hasExpertise ? 'Expertise' : (prof.trained ? 'Treinado' : 'Não Treinado')}</span>
-                                </div>
-                                <div style="font-size: 12px; color: var(--accent-gold); white-space: nowrap;">
-                                    ${totalBonus >= 0 ? '+' : ''}${totalBonus}
-                                </div>
-                            </div>
-                        </div>`;
-                }
-            });
-            
-            if (!isEditing) {
-                html += `<div style="margin-top: 8px; font-size: 6px; color: #888; text-align: center;">
-                    * Bônus = Atributo + (Treinado? +2) + (Expertise? +2)
-                </div>`;
-            }
-        }
-        else if (currentSection === 'lore') {
-            html = `<h2>HISTÓRIA / LORE</h2>`;
-            html += isEditing 
-                ? `<textarea onchange="updateLore(this.value)" style="height:180px; font-size: 7px;">${characterData.lore}</textarea>`
-                : `<div style="font-size:7px; line-height:1.6; color:#ccc; white-space:pre-wrap; word-break: break-word;">${characterData.lore}</div>`;
-        }
-        else if (currentSection === 'journal') {
-            html = `<h2>DIÁRIO</h2>`;
-            html += isEditing 
-                ? `<textarea onchange="updateJournal(this.value)" style="height:180px; font-size: 7px;">${characterData.journal}</textarea>`
-                : `<div style="font-size:7px; line-height:1.6; color:#ccc; white-space:pre-wrap; word-break: break-word;">${characterData.journal}</div>`;
-        }
-        else if (currentSection === 'dice') {
-            html = `<h2>ROLAR DADOS</h2>
-                    <div class="dice-grid">
-                        <button class="die-btn" onclick="rollDie(4)">D4</button>
-                        <button class="die-btn" onclick="rollDie(6)">D6</button>
-                        <button class="die-btn" onclick="rollDie(8)">D8</button>
-                        <button class="die-btn" onclick="rollDie(10)">D10</button>
-                        <button class="die-btn" onclick="rollDie(12)">D12</button>
-                        <button class="die-btn" onclick="rollDie(20)">D20</button>
-                        ${(characterData.customDice || []).map((faces, i) => `
-                            <button class="die-btn custom" onclick="rollDie(${faces})">
-                                D${faces}
-                                ${isEditing ? `<span onclick="removeCustomDie(event, ${i})" style="display:block; font-size:5px; color:red; margin-top:2px;">[REMOVER]</span>` : ''}
-                            </button>
-                        `).join('')}
-                    </div>`;
-
-            if (isEditing) {
-                html += `
-                    <div class="custom-dice-editor">
-                        <p style="font-size:6px; margin-bottom:8px; color:var(--accent-gold);">ADICIONAR NOVO ATALHO</p>
-                        <div style="display:flex; gap:8px; flex-wrap: wrap;">
-                            <input type="number" id="new-die-val" placeholder="Faces" style="flex:1; min-width: 100px; font-size: 8px;">
-                            <button class="die-btn" style="background:#444; flex:1; min-width: 100px; font-size: 7px;" onclick="addCustomDie()">SALVAR DADO</button>
-                        </div>
-                    </div>`;
-            }
-
-            html += `
-                    <div class="roll-log" id="roll-log">
-                        ${characterData.rollHistory.map(r => `<div style="margin-bottom: 2px;">> ${r}</div>`).reverse().join('')}
-                    </div>
-                    <button class="action-btn" style="margin-top:8px;" onclick="clearLog()">LIMPAR LOG</button>`;
-        }
-        else if (currentSection === 'config') {
-            html = `<h2>GERENCIAR DADOS</h2>
-                    <p style="font-size:6px; margin-bottom:12px; color:#888;">FICHA // EXPORTAÇÃO</p>
-                    
-                    <button class="action-btn" onclick="exportData()">💾 EXPORTAR FICHA (.JSON)</button>
-                    
-                    <div style="margin-bottom:8px;">
-                        <button class="action-btn" onclick="calculateAllProficiencies()" style="background: #2c5e2c;">
-                            🔄 CALCULAR PERÍCIAS
+                <button class="header-btn" onclick="showSection('config')" title="Configurações">
+                    <i class="fas fa-cog"></i>
+                </button>
+            </div>
+        </header>
+        
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Left Screen -->
+            <div class="screen display-screen" id="left-screen">
+                <div class="screen-header">
+                    <div id="screen-title" class="screen-title">SISTEMA // STATUS</div>
+                    <div class="screen-actions">
+                        <button class="action-btn small" onclick="toggleFullscreen()" title="Tela Cheia">
+                            <i class="fas fa-expand"></i>
                         </button>
-                        <p style="font-size:5px; color:#888; text-align:center; margin-top: 2px;">Recalcula bônus baseado em atributos</p>
                     </div>
-                    
-                    <div style="margin-bottom:15px;">
-                        <p style="font-size:5px; margin-bottom:4px;">IMPORTAR FICHA:</p>
-                        <input type="file" id="import-file" onchange="importData(event)" accept=".json" style="font-size:6px; background:#111; padding: 3px;">
-                    </div>
-
-                    <hr style="border-color:#333; margin-bottom:15px; border-width: 1px;">
-                    
-                    <button class="action-btn danger-btn" onclick="resetData()">🧨 RESETAR FICHA</button>
-                    
-                    <div style="margin-top:15px; text-align:center; font-size:5px; color:#444;">RPG DATASCREEN V2.5.0 PWA</div>
-                    <div style="margin-top:5px; text-align:center; font-size:4px; color:#666;">
-                        📱 Instalável • ⚡️ Offline • 🔄 Atualizável
-                    </div>`;
-        }
-
-        container.innerHTML = html;
-        
-        setTimeout(() => {
-            const itemCards = container.querySelectorAll('.item-card');
-            itemCards.forEach((card, index) => {
-                card.style.transitionDelay = `${index * 0.05}s`;
-                card.style.transform = "translateY(0)";
-                card.style.opacity = "1";
-            });
-        }, 10);
-        
-        if(currentSection === 'dice') {
-            const log = document.getElementById('roll-log');
-            if (log) {
-                log.scrollTop = 0;
-                setTimeout(() => {
-                    const logEntries = log.querySelectorAll('div');
-                    logEntries.forEach((entry, index) => {
-                        entry.style.transition = "all 0.3s ease";
-                        entry.style.opacity = "1";
-                        entry.style.transform = "translateY(0)";
-                    });
-                }, 50);
-            }
-        }
-    }
-
-    // Funções auxiliares para perícias
-    function extractBonusFromStat(attributeName) {
-        const stat = characterData.stats.find(s => s.label === attributeName);
-        if (!stat) return 0;
-        
-        const match = stat.val.match(/\(([+-]?\d+)\)/);
-        if (match) return parseInt(match[1]);
-        
-        const altMatch = stat.val.match(/[+-]\d+/);
-        if (altMatch) return parseInt(altMatch[0]);
-        
-        return 0;
-    }
-
-    function calculateAllProficiencies() {
-        characterData.proficiencies.forEach((prof, i) => {
-            const attrBonus = extractBonusFromStat(prof.attribute);
-            const trainedBonus = prof.trained ? 2 : 0;
-            const expertiseBonus = prof.hasExpertise ? 2 : 0;
-            characterData.proficiencies[i].bonus = attrBonus + trainedBonus + expertiseBonus;
-        });
-        save();
-        if (currentSection === 'proficiencies') renderContent();
-        showSaveMessage("PERÍCIAS CALCULADAS!");
-    }
-
-    // Funções para gerenciar perícias
-    function updateProficiency(i, key, value) {
-        characterData.proficiencies[i][key] = value;
-        save();
-        if (currentSection === 'proficiencies') renderContent();
-    }
-
-    function addProficiency() {
-        characterData.proficiencies.push({
-            name: "NOVA PERÍCIA",
-            attribute: "DESTREZA",
-            trained: false,
-            bonus: 0,
-            hasExpertise: false
-        });
-        save();
-        renderContent();
-    }
-
-    function removeProficiency(i) {
-        characterData.proficiencies.splice(i, 1);
-        save();
-        renderContent();
-    }
-
-    // Funções de Dados
-    function rollDie(sides) {
-        const result = Math.floor(Math.random() * sides) + 1;
-        addRollToLog(`D${sides}: RESULTADO ${result}`);
-        
-        const dieBtn = event.target.closest('.die-btn');
-        if (dieBtn) {
-            dieBtn.style.transform = "scale(0.9)";
-            setTimeout(() => {
-                dieBtn.style.transform = "";
-            }, 150);
-        }
-    }
-
-    function addCustomDie() {
-        const val = parseInt(document.getElementById('new-die-val').value);
-        if(!val || val <= 0) return;
-        if(!characterData.customDice) characterData.customDice = [];
-        characterData.customDice.push(val);
-        save();
-        renderContent();
-        document.getElementById('new-die-val').value = '';
-        
-        const btn = document.querySelector('.custom-dice-editor .die-btn');
-        if (btn) {
-            btn.style.background = "#4de64d";
-            setTimeout(() => {
-                btn.style.background = "";
-            }, 500);
-        }
-    }
-
-    function removeCustomDie(event, index) {
-        event.stopPropagation();
-        event.preventDefault();
-        characterData.customDice.splice(index, 1);
-        save();
-        renderContent();
-    }
-
-    function addRollToLog(entry) {
-        characterData.rollHistory.push(entry);
-        if(characterData.rollHistory.length > 20) characterData.rollHistory.shift();
-        save();
-        renderContent();
-    }
-
-    function clearLog() {
-        characterData.rollHistory = [];
-        save();
-        renderContent();
-    }
-
-    // Navegação e Estado
-    function showSection(section) {
-        const container = document.getElementById('main-content');
-        container.style.opacity = "0.7";
-        container.style.transform = "translateX(10px)";
-        
-        setTimeout(() => {
-            currentSection = section;
-            document.querySelectorAll('.nav-button').forEach(b => b.classList.remove('active'));
-            document.getElementById(`btn-${section}`).classList.add('active');
-            document.getElementById('screen-title').innerText = `SISTEMA // ${section.toUpperCase()}`;
-            renderContent();
+                </div>
+                <div class="content-area" id="main-content">
+                    <!-- Content will be loaded here by JavaScript -->
+                </div>
+                <div id="save-msg" class="save-indicator">
+                    <i class="fas fa-check-circle"></i> DADOS SALVOS!
+                </div>
+            </div>
             
-            container.style.opacity = "1";
-            container.style.transform = "translateX(0)";
-        }, 200);
-    }
-
-    function showSaveMessage(customMessage = "DADOS SALVOS!") {
-        const msg = document.getElementById('save-msg');
-        msg.innerText = customMessage;
-        msg.classList.add('show');
+            <!-- Right Screen -->
+            <div class="screen menu-screen" id="right-screen">
+                <!-- Mode Toggle -->
+                <div class="mode-toggle">
+                    <span>EXIBIR</span>
+                    <label class="switch">
+                        <input type="checkbox" id="mode-switch" onchange="toggleMode()">
+                        <span class="slider"></span>
+                    </label>
+                    <span>EDITAR</span>
+                </div>
+                
+                <!-- Status Bar -->
+                <div class="status-bar" id="status-bar-container">
+                    <!-- Status will be loaded here -->
+                </div>
+                
+                <!-- Navigation -->
+                <nav class="nav-grid" id="nav-grid">
+                    <!-- Navigation buttons will be loaded here -->
+                </nav>
+                
+                <!-- Footer -->
+                <div class="menu-footer">
+                    <div class="version">v3.0.0 PWA</div>
+                    <div class="storage-info" id="storage-info">
+                        <i class="fas fa-database"></i>
+                        <span id="storage-used">0%</span>
+                    </div>
+                </div>
+            </div>
+        </main>
         
-        setTimeout(() => {
-            msg.classList.remove('show');
-        }, 1500);
-    }
-
-    function save() {
-        localStorage.setItem('rpg_character_data', JSON.stringify(characterData));
-        showSaveMessage();
-        if(!isEditing) renderStatusBar();
-    }
-
-    // Handlers de Update
-    function updateBasic(key, val) { 
-        characterData.basic[key] = (key.includes('hp')) ? parseInt(val) : val; 
-        save(); 
-    }
+        <!-- Mobile Navigation Overlay -->
+        <div id="mobile-nav" class="mobile-nav-overlay">
+            <div class="mobile-nav-content">
+                <div class="mobile-nav-header">
+                    <h3>Navegação</h3>
+                    <button class="close-nav" onclick="toggleMenu()">
+                        <i class="fas fa-times"></i>
+                    </button>
+                </div>
+                <div class="mobile-nav-buttons">
+                    <!-- Mobile navigation will be loaded here -->
+                </div>
+            </div>
+        </div>
+    </div>
     
-    function updateStat(i, val) { 
-        characterData.stats[i].val = val; 
-        save(); 
-    }
+    <!-- Audio Elements -->
+    <audio id="diceSound" preload="auto">
+        <source src="sounds/dice-roll.mp3" type="audio/mpeg">
+        Seu navegador não suporta áudio.
+    </audio>
+    <audio id="clickSound" preload="auto">
+        <source src="sounds/click.mp3" type="audio/mpeg">
+        Seu navegador não suporta áudio.
+    </audio>
     
-    function updateItem(i, k, v) { 
-        characterData.inventory[i][k] = v; 
-        save(); 
-    }
+    <!-- JavaScript Files -->
+    <script src="app.js"></script>
     
-    function addItem() { 
-        characterData.inventory.push({name:"Item", desc:"..."}); 
-        renderContent(); 
-        save(); 
-    }
-    
-    function removeItem(i) { 
-        characterData.inventory.splice(i, 1); 
-        renderContent(); 
-        save(); 
-    }
-    
-    function updateSkill(i, k, v) { 
-        characterData.skills[i][k] = v; 
-        save(); 
-        if(k === 'color') renderContent(); 
-    }
-    
-    function addSkill() { 
-        characterData.skills.push({name:"Magia", desc:"...", color:"#ffeb3b"}); 
-        renderContent(); 
-        save(); 
-    }
-    
-    function updateLore(v) { 
-        characterData.lore = v; 
-        save(); 
-    }
-    
-    function updateJournal(v) { 
-        characterData.journal = v; 
-        save(); 
-    }
-
-    // Backup e Sistema
-    function resetData() {
-        if(confirm("Tem certeza? Isso apagará todos os seus dados salvos localmente.")) {
-            localStorage.removeItem('rpg_character_data');
-            location.reload();
-        }
-    }
-
-    function exportData() {
-        const dataStr = "data:text/json;charset=utf-8," + encodeURIComponent(JSON.stringify(characterData));
-        const downloadAnchorNode = document.createElement('a');
-        downloadAnchorNode.setAttribute("href", dataStr);
-        const name = characterData.basic.name.replace(/\s+/g, '_').toLowerCase();
-        downloadAnchorNode.setAttribute("download", `rpg_${name}_ficha.json`);
-        document.body.appendChild(downloadAnchorNode);
-        downloadAnchorNode.click();
-        downloadAnchorNode.remove();
+    <!-- PWA Installation Handler -->
+    <script>
+        let deferredPrompt;
         
-        showSaveMessage("FICHA EXPORTADA!");
-    }
-
-    function importData(event) {
-        const file = event.target.files[0];
-        if (!file) return;
-
-        const reader = new FileReader();
-        reader.onload = function(e) {
-            try {
-                const imported = JSON.parse(e.target.result);
-                if(imported.basic && imported.stats) {
-                    characterData = imported;
-                    save();
-                    document.body.style.opacity = "0.7";
-                    setTimeout(() => {
-                        location.reload();
-                    }, 300);
-                } else {
-                    alert("Arquivo JSON inválido para esta ficha.");
+        // Evento para capturar o prompt de instalação
+        window.addEventListener('beforeinstallprompt', (e) => {
+            e.preventDefault();
+            deferredPrompt = e;
+            
+            // Mostrar prompt após 15 segundos
+            setTimeout(() => {
+                if (deferredPrompt && !isAppInstalled()) {
+                    showInstallPrompt();
                 }
-            } catch (err) {
-                alert("Erro ao ler o arquivo.");
+            }, 15000);
+        });
+        
+        // Verificar se o app já está instalado
+        function isAppInstalled() {
+            return window.matchMedia('(display-mode: standalone)').matches ||
+                   window.navigator.standalone ||
+                   document.referrer.includes('android-app://');
+        }
+        
+        // Mostrar prompt de instalação
+        function showInstallPrompt() {
+            const prompt = document.getElementById('install-prompt');
+            prompt.style.display = 'flex';
+            setTimeout(() => {
+                prompt.classList.add('show');
+            }, 10);
+        }
+        
+        // Esconder prompt de instalação
+        function hideInstallPrompt() {
+            const prompt = document.getElementById('install-prompt');
+            prompt.classList.remove('show');
+            setTimeout(() => {
+                prompt.style.display = 'none';
+            }, 300);
+        }
+        
+        // Instalar app
+        function installApp() {
+            if (!deferredPrompt) return;
+            
+            deferredPrompt.prompt();
+            
+            deferredPrompt.userChoice.then((choiceResult) => {
+                if (choiceResult.outcome === 'accepted') {
+                    showNotification('📱 App instalado com sucesso!', 'success');
+                }
+                deferredPrompt = null;
+                hideInstallPrompt();
+            });
+        }
+        
+        // Sistema de notificações
+        function showNotification(message, type = 'info') {
+            const notification = document.getElementById('notification');
+            const text = document.getElementById('notification-text');
+            
+            notification.className = `notification ${type}`;
+            text.textContent = message;
+            notification.style.display = 'flex';
+            
+            setTimeout(() => {
+                notification.classList.add('show');
+            }, 10);
+            
+            // Auto-esconder após 3 segundos
+            setTimeout(() => {
+                hideNotification();
+            }, 3000);
+        }
+        
+        function hideNotification() {
+            const notification = document.getElementById('notification');
+            notification.classList.remove('show');
+            setTimeout(() => {
+                notification.style.display = 'none';
+            }, 300);
+        }
+        
+        // Tela cheia
+        function toggleFullscreen() {
+            if (!document.fullscreenElement) {
+                document.documentElement.requestFullscreen().catch(err => {
+                    showNotification('Não foi possível entrar em tela cheia', 'error');
+                });
+            } else {
+                if (document.exitFullscreen) {
+                    document.exitFullscreen();
+                }
             }
-        };
-        reader.readAsText(file);
-    }
-
-    // Suporte a toque para mobile
-    document.addEventListener('touchstart', function() {}, {passive: true});
-    
-    // Prevenir zoom em input focus em iOS
-    document.addEventListener('focusin', function(e) {
-        if (window.innerWidth <= 768) {
-            e.target.style.fontSize = '16px';
         }
-    });
-    
-    document.addEventListener('focusout', function(e) {
-        if (window.innerWidth <= 768) {
-            e.target.style.fontSize = '';
+        
+        // Toggle menu mobile
+        function toggleMenu() {
+            const mobileNav = document.getElementById('mobile-nav');
+            mobileNav.classList.toggle('show');
         }
-    });
-
-    window.onload = init;
-</script>
-
+        
+        // Atualizar status da conexão
+        function updateConnectionStatus() {
+            const status = document.getElementById('connection-status');
+            if (navigator.onLine) {
+                status.className = 'connection-status online';
+                status.innerHTML = '<i class="fas fa-wifi"></i>';
+            } else {
+                status.className = 'connection-status offline';
+                status.innerHTML = '<i class="fas fa-wifi-slash"></i>';
+            }
+        }
+        
+        // Atualizar uso de armazenamento
+        function updateStorageInfo() {
+            if ('storage' in navigator && 'estimate' in navigator.storage) {
+                navigator.storage.estimate().then(estimate => {
+                    const used = estimate.usage;
+                    const total = estimate.quota;
+                    const percent = total ? Math.round((used / total) * 100) : 0;
+                    
+                    document.getElementById('storage-used').textContent = `${percent}%`;
+                });
+            }
+        }
+        
+        // Inicializar
+        window.addEventListener('load', () => {
+            updateConnectionStatus();
+            updateStorageInfo();
+            
+            // Atualizar a cada 30 segundos
+            setInterval(updateStorageInfo, 30000);
+        });
+        
+        // Suporte a teclas de atalho
+        document.addEventListener('keydown', (e) => {
+            // Ctrl+S para salvar
+            if (e.ctrlKey && e.key === 's') {
+                e.preventDefault();
+                save();
+                showNotification('💾 Dados salvos com sucesso!', 'success');
+            }
+            
+            // Escape para sair do modo tela cheia
+            if (e.key === 'Escape' && document.fullscreenElement) {
+                document.exitFullscreen();
+            }
+            
+            // Números para navegação rápida (1-8)
+            if (e.key >= '1' && e.key <= '8' && !e.ctrlKey && !e.altKey) {
+                const sections = ['status', 'inventory', 'skills', 'proficiencies', 'lore', 'dice', 'journal', 'config'];
+                const index = parseInt(e.key) - 1;
+                if (sections[index]) {
+                    showSection(sections[index]);
+                    playSound('click');
+                }
+            }
+        });
+        
+        // Tocar sons
+        function playSound(soundId) {
+            const sound = document.getElementById(soundId);
+            if (sound) {
+                sound.currentTime = 0;
+                sound.play().catch(e => console.log('Não foi possível tocar som:', e));
+            }
+        }
+    </script>
 </body>
 </html>
