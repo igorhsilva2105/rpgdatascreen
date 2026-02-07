@@ -1,0 +1,141 @@
+{
+  "name": "RPG Console Pro",
+  "short_name": "RPG Console",
+  "description": "Ficha de RPG interativa completa para suas aventuras!",
+  "start_url": "/",
+  "display": "standalone",
+  "display_override": ["window-controls-overlay", "standalone", "minimal-ui"],
+  "orientation": "any",
+  "background_color": "#0f0f0f",
+  "theme_color": "#1e3a52",
+  "categories": ["entertainment", "games", "productivity"],
+  "lang": "pt-BR",
+  "dir": "ltr",
+  "icons": [
+    {
+      "src": "icons/icon-72x72.png",
+      "sizes": "72x72",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "icons/icon-96x96.png",
+      "sizes": "96x96",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "icons/icon-128x128.png",
+      "sizes": "128x128",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "icons/icon-144x144.png",
+      "sizes": "144x144",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "icons/icon-152x152.png",
+      "sizes": "152x152",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "icons/icon-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "icons/icon-384x384.png",
+      "sizes": "384x384",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "icons/icon-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    }
+  ],
+  "screenshots": [
+    {
+      "src": "screenshots/desktop.png",
+      "sizes": "1280x720",
+      "type": "image/png",
+      "form_factor": "wide",
+      "label": "Desktop view of RPG Console Pro"
+    },
+    {
+      "src": "screenshots/mobile.png",
+      "sizes": "750x1334",
+      "type": "image/png",
+      "form_factor": "narrow",
+      "label": "Mobile view of RPG Console Pro"
+    }
+  ],
+  "shortcuts": [
+    {
+      "name": "Criar novo personagem",
+      "short_name": "Novo",
+      "description": "Cria um novo personagem do zero",
+      "url": "/?action=new",
+      "icons": [{ "src": "icons/shortcut-new.png", "sizes": "96x96" }]
+    },
+    {
+      "name": "Rolagem rápida",
+      "short_name": "Dados",
+      "description": "Acessa a rolagem de dados rapidamente",
+      "url": "/?section=dice",
+      "icons": [{ "src": "icons/shortcut-dice.png", "sizes": "96x96" }]
+    },
+    {
+      "name": "Inventário",
+      "short_name": "Itens",
+      "description": "Acessa o inventário do personagem",
+      "url": "/?section=inventory",
+      "icons": [{ "src": "icons/shortcut-inventory.png", "sizes": "96x96" }]
+    }
+  ],
+  "share_target": {
+    "action": "/share",
+    "method": "POST",
+    "enctype": "multipart/form-data",
+    "params": {
+      "title": "name",
+      "text": "description",
+      "url": "link",
+      "files": [
+        {
+          "name": "ficha",
+          "accept": ["application/json", ".json"]
+        }
+      ]
+    }
+  },
+  "protocol_handlers": [
+    {
+      "protocol": "web+rpg",
+      "url": "/import?ficha=%s"
+    }
+  ],
+  "related_applications": [
+    {
+      "platform": "play",
+      "url": "https://play.google.com/store/apps/details?id=com.example.rpgconsole"
+    }
+  ],
+  "prefer_related_applications": false,
+  "launch_handler": {
+    "client_mode": ["auto", "focus-existing", "navigate-new"]
+  },
+  "handle_links": "preferred",
+  "scope": "/",
+  "id": "/",
+  "edge_side_panel": {
+    "preferred_width": 400
+  }
+}
