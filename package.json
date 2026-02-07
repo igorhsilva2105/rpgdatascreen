@@ -1,0 +1,25 @@
+{
+  "name": "rpg-console-pro-pwa",
+  "version": "3.0.0",
+  "description": "Ficha de RPG interativa como Progressive Web App",
+  "main": "index.html",
+  "scripts": {
+    "start": "http-server -c-1 -p 8080",
+    "build": "echo 'PWA build complete'",
+    "test": "echo 'No tests specified'",
+    "deploy": "gh-pages -d ."
+  },
+  "keywords": [
+    "rpg",
+    "pwa",
+    "game",
+    "character-sheet",
+    "dice-roller"
+  ],
+  "author": "RPG Console Pro Team",
+  "license": "MIT",
+  "devDependencies": {
+    "http-server": "^14.1.1",
+    "gh-pages": "^6.0.0"
+  }
+}
